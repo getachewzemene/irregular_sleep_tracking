@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard Page </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Getachew Zemene">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1a7be0b1e9.js" crossorigin="anonymous"></script>
+    <script src="assets/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <nav class="row-sm bg-primary navbar">
+            <h2 id="blog" class="ml-5 pl-5 text-light">Irregular Sleep Tracking(IST)</h2>
+            <ul class="nav float-right justify-content-center">
+                <li class="h4 nav-item col-sm">
+                    <a class="nav-link text-light active" href="/register">Register</a>
+                </li>
+                <li class="h4 nav-item col-sm">
+                    <a class="nav-link text-light" href="/login">Login</a>
+                </li>
+                <li class="h4 nav-item col-sm">
+                    <a class="nav-link text-light" href="/userPage">Profile</a>
+                </li>
+                <li class="h4 nav-item col-sm">
+                    <a class="nav-link text-light" onclick="openForm();return false; " href="/adminPage">Admin</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- pop up admin login form -->
+    <div class="form-popup" id="myForm">
+        <form action="/adminLogin" class="form-container" method="post">
+            <h1>Login</h1>
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Enter admin name" name="name" id="admin_name" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter admin Password" name="psw" id="admin_pass" required>
+
+            <button type="submit" class="btn_login">Login</button>
+            <button type="button" class="btn_cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="card-deck">
+                <div id="cardsm8" class="card col-sm-8">
+                    <div class="card-header bg-light">
+                        <h3 class="h1 text-primary text-capitalize">Welcome To Dashboard Page:<span class="text-danger"> {{message}}</span></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-secondary text-danger">by <span class="text-primary">Getch IST Admin</span></p>
+                        <p class="text-secondary">posted on july 28,2021 at 12:00 pm.</p>
+                        <p><img src="./sleep.jpg" width="700" height="300" alt="sleep image" /></p>
+                        <hr/>
+                        <p>“Early to rise, early to bed, makes a man healthy, wealthy, and dead.” </p>
+                        <footer class="blockquote-footer">by — James Thurber, American Cartoonist</footer>
+                        <p>Never go to bed mad. Stay up and fight.<br/>
+                            <footer class="blockquote-footer">by Phyllis Diller, Phyllis Diller’s Housekeeping Hints
+                            </footer>
+                        </p>
+                        <p>When the going gets tough, the tough take a nap.<br/>
+                            <footer class="blockquote-footer">by Tom Hodgkinson, British Writer</footer>
+                        </p>
+                        <p>It is only useful, When it is useful.<br/>
+                            <footer class="blockquote-footer text-danger">by Getachew Zemene, IST Admin and CEO.</footer>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div id="cardsm4" class="card">
+                        <div class="card-header borderd bg-primary">
+                            <h3 class="text-dark">Search Quotes</h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" action="#">
+                                <input type="search" class="form-control" placeholder="Search for quotes..." id="search">
+                                <button type="button" class="btn mt-2 mb-2 bg-primary text-light">Search Quote</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="catagories" class="row m-1">
+                        <div class="card">
+                            <div class="card-header bg-primary">
+                                <h3 class="h3 text-dark">More Links</h3>
+                            </div>
+                            <div class="row card-body text-primary">
+                                <div class="col-sm-6">
+                                    <a href="#quotes">View More Quotes</a>
+                                    <a href="/about">About Us</a><br/>
+                                    <a href="#feedback">Feedback</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="admin" class="row m-1">
+                        <div class="card">
+                            <div class="card-header bg-primary">
+                                <h3 class="h3 text-dark">Admin</h3>
+                            </div>
+                            <div class="row card-body text-primary">
+                                <div class="col-sm-6">
+                                    <figure>
+                                        <a href="/about"><img src="./admin.jpg" width="350" height="400" alt="admin image" title="Getachew Zemene"></a>
+                                        <figcaption class="text-danger text-capitalize">Getachew Zemene. IST CEO</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--col-sm-4 end-->
+            </div>
+            <!--deck end-->
+        </div>
+    </div>
+    <div class="footer text-center" style="margin-top: 100px; background-color: rgb(8, 75, 71); color: white;">
+        <div class="font-awsome">
+            <i class="fab fa-facebook m-2"></i>
+            <i class="fab fa-twitter-square m-2"></i>
+            <i class="fab fa-instagram m-2"></i>
+            <i class="fab fa-google-plus m-2"></i>
+            <i class="far fa-envelope m-2"></i>
+        </div>
+        <p>&copy;All right reserved.IST Org. July 28,2021</p>
+    </div>
+</body>
+
+</html>

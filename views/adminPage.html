@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Page </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Getachew Zemene">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1a7be0b1e9.js" crossorigin="anonymous"></script>
+    <script src="assets/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <nav class="row-sm bg-primary navbar">
+            <h1 id="blog" class="ml-5 pl-5 text-light">Irregular Sleep Tracking(IST)</h1>
+            <ul class="nav float-right justify-content-center">
+                <li class="h4 nav-item col-sm">
+                    <a class="nav-link text-light active" href="/">Dashboard</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="card-deck">
+                <div id="cardsm8" class="card col-sm-8">
+                    <div class="card-header bg-light">
+                        <h1 class="h1 text-dark">Irregular Sleep Tracking Admin Page</h1>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-secondary">by <span class="text-primary">Irregular Sleep Tracking Org.</span></p>
+                        <p class="text-secondary">posted on july 1,2021 at 12:00 pm.</p>
+                        <hr/>
+                        <p>There is no sunrise so beautiful that it is worth waking me up to see it.</p>
+                        <footer class="blockquote-footer text-danger">by Getachew Zemene IST Org. Admin.</footer>
+                        <h4 class="h4 text-dark">List of User</h4>
+                        <p>{{message}}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div id="cardsm4" class="card">
+                        <div class="card-header borderd bg-primary">
+                            <h3 class="text-dark">Add Quotes</h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" action="/addQuote" method="post">
+                                <input type="text" class="form-control" placeholder="add quotes here..." id="add"><button type="button" class="btn mt-2 mb-2 bg-primary text-light" />Add
+                            </form>
+                        </div>
+                    </div>
+                    <div id="catagories" class="row m-1">
+                        <div class="card">
+                            <div class="card-header bg-primary">
+                                <h3 class="h3 text-dark">More...</h3>
+                            </div>
+                            <div class="row card-body text-primary">
+                                <div class="col-sm-6">
+                                    <a href="#users">View Users</a><br/>
+                                    <a href="#feedback">View Feedback</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="admin" class="row m-1">
+                        <div class="card">
+                            <div class="card-header bg-primary">
+                                <h3 class="h3 text-dark">Admin</h3>
+                            </div>
+                            <div class="row card-body text-primary">
+                                <div class="col-sm-6">
+                                    <figure>
+                                        <a href="/about"><img src="./admin.jpg" width="350" height="400" alt="admin image" title="Getachew Zemene"></a>
+                                        <figcaption class="text-danger text-capitalize">Getachew Zemene. IST CEO</figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--col-sm-4 end-->
+            </div>
+            <!--deck end-->
+        </div>
+    </div>
+    <div class="footer text-center" style="margin-top: 100px; background-color: rgb(8, 75, 71); color: white;">
+        <div class="font-awsome">
+            <i class="fab fa-facebook m-2"></i>
+            <i class="fab fa-twitter-square m-2"></i>
+            <i class="fab fa-instagram m-2"></i>
+            <i class="fab fa-google-plus m-2"></i>
+            <i class="far fa-envelope m-2"></i>
+        </div>
+        <p>&copy;All right reserved. IST Org., July 28,2021</p>
+    </div>
+</body>
+
+</html>

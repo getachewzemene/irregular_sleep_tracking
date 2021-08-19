@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Page </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Getachew Zemene">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1a7be0b1e9.js" crossorigin="anonymous"></script>
+    <script src="assets/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="assets/javascript.js"></script>
+    <script src="assets/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <nav class="row-sm bg-primary navbar">
+            <h1 id="blog" class="ml-5 pl-5 text-light">Irregular Sleep Tracking User Page</h1>
+            <ul class="nav float-right justify-content-center">
+                <li class="h4 nav-item col-sm">
+                    <a class="nav-link text-light active" href="/">Dashboard</a>
+                </li>
+                <li class="h4 nav-item col-sm">
+                    <a class="nav-link text-light active" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="card-deck">
+                <div id="cardsm8" class="card col-sm-8">
+                    <div class="card-header bg-light">
+                        <h1 class="h1 text-capitalize text-info">Welcome {{message}}</h1>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-secondary">by <span class="text-primary">Irregular Sleep Tracking Org.</span></p>
+                        <hr/>
+                        <p id="sleep_data" style="color: black;">Sleep data </p>
+                        <hr/>
+                        <p>There is no sunrise so beautiful that it is worth waking me up to see it.</p>
+                        <footer class="blockquote-footer text-danger">by Getachew Zemene IST Org. Admin.</footer>
+                        <div class="chart-container" style="position: relative; height:50vh; width:50vw">
+                            <canvas id="chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div id="cardsm4" class="card">
+                        <div class="card-header borderd bg-primary">
+                            <h3 class="text-dark">Add Sleep Entries</h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" action="/addSleepEntries" method="Post">
+                                <p><label for="date">Sleep Date:</label>
+                                    <input type="date" class="form-control" id="date" name="sleepDate" required/></p>
+                                <p><label for="sleepT">Sleep Time:</label>
+                                    <input type="time" class="form-control" id="sleepT" name="sleepTime" required/></p>
+                                <p><label for="wakeT">Wake up Time:</label>
+                                    <input type="time" class="form-control" id="wakeT" name="wakeUpTime" required/></p>
+                                <button type="submit" class="btn mt-2 mb-2 bg-primary text-light">Add</button>
+                                <button type="reset" class="btn mt-2 mb-2 bg-primary text-light">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="catagories" class="row m-1">
+                        <div class="card">
+                            <div class="card-header bg-primary">
+                                <h3 class="h3 text-dark">More..</h3>
+                            </div>
+                            <div class="row card-body text-primary">
+                                <div class="col-sm-6">
+                                    <a href="#feedback">Feedback</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--col-sm-4 end-->
+            </div>
+            <!--deck end-->
+        </div>
+    </div>
+    <div class="footer text-center" style="margin-top: 100px; background-color: rgb(8, 75, 71); color: white;">
+        <div class="font-awsome">
+            <i class="fab fa-facebook m-2"></i>
+            <i class="fab fa-twitter-square m-2"></i>
+            <i class="fab fa-instagram m-2"></i>
+            <i class="fab fa-google-plus m-2"></i>
+            <i class="far fa-envelope m-2"></i>
+        </div>
+        <p>&copy;All right reserved. IST Org., July 28,2021</p>
+    </div>
+    <!-- Chart.JS Script -->
+    <script>
+        let yAxis = [];
+        let xAxis = [];
+        window.onload = function() {
+            $.ajax({
+                url: 'http://localhost:8080/chartData',
+                type: 'get',
+                dataType: 'json',
+                success: function(data, textStatus, xhr) {
+                    var sleepData = JSON.parse(data);
+                    // console.log(sleepData);
+                    try {
+                        sleepData.map((item) => {
+                            yAxis.push(item.sleep_duration);
+                            xAxis.push(item.sleep_date);
+                        });
+                    } catch (e) {
+                        console.log(e);
+                    }
+                },
+                error: function(err, textStatus, xhr) {
+                    console.log("error fetching data from api");
+                }
+            });
+            // var sleep_duration = xAxis.toString();
+            // document.getElementById("sleep_data").innerHTML = sleep_duration;
+
+            console.log(xAxis);
+            console.log(yAxis);
+        };
+
+        var ctx = document.getElementById('chart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['2021:08:2', '2021:08:3', '2021:08:4', '2021:08:5', '2021:08:6', '2021:08:7'],
+                datasets: [{
+                    label: 'Sleep Duration Chart',
+                    data: [4, 5, 7, 8, 6, 9],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

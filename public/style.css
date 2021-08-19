@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+body.body-container {
+    background-color: rgb(8, 75, 71);
+    /* background-image: url('sleep.jpg'); */
+    font-size: 14px;
+    margin-top: 0;
+    margin-left: 10%;
+}
+
+.body-container .row {
+    margin: 0;
+    padding: 0;
+    width: 600px;
+    height: 700px;
+}
+
+.body-container .row .col-4 {
+    width: 80%;
+    height: 60%;
+}
+
+.body-container .card-wrapper {
+    width: 400px;
+}
+
+.body-container .card {
+    border-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .05);
+}
+
+.body-container .card.fat {
+    padding: 10px;
+}
+
+.body-container .card .card-title {
+    margin-bottom: 30px;
+}
+
+.body-container .form-control {
+    border-width: 2.3px;
+}
+
+.body-container .form-group label {
+    width: 100%;
+}
+
+.body-container .btn.btn-block {
+    padding: 12px 10px;
+}
+
+.body-container .btn-google {
+    color: white;
+    background-color: #ea4335
+}
+
+.body-container .btn-facebook {
+    color: white;
+    background-color: #3b5998
+}
+
+.body-container .footer {
+    margin: 40px 0;
+    color: #fff;
+    background-color: rgb(8, 75, 71);
+    text-align: center;
+}
+
+#cardsm8 {
+    border: none;
+}
+
+.footerContainer {
+    background-color: #05613e;
+    padding: 0;
+    margin: 0;
+    height: 50%;
+    width: 100%;
+}
+
+ul.navbar {
+    position: relative;
+    display: flex;
+    float: right;
+}
+
+ul.navbar li {
+    position: relative;
+    list-style: none;
+    text-align: center;
+    padding-left: 30px;
+}
+
+ul.navbar li a {
+    position: relative;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+ul.navbar li a:hover {
+    color: #000;
+}
+
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
+
+
+/* The popup form - hidden by default */
+
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+
+/* Add styles to the form container */
+
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+
+/* Full-width input fields */
+
+.form-container #admin_name,
+.form-container #admin_pass {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+
+/* When the inputs get focus, do something */
+
+.form-container #admin_name:focus,
+.form-container #admin_pass:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+
+/* Set a style for the submit/login button */
+
+.form-container .btn_login {
+    background-color: #04AA6D;
+}
+
+.form-container .btn_login,
+.form-container .btn_cancel {
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+
+/* Add a red background color to the cancel button */
+
+.form-container .btn_cancel {
+    background-color: red;
+}
+
+
+/* Add some hover effects to buttons */
+
+.form-container .btn_login:hover,
+.open-button:hover,
+.btn_cancel:hover {
+    opacity: 1;
+}
+
+@media screen and (max-width: 425px) {
+    .my-login-page .card-wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .body-container .card.fat {
+        padding: 0;
+    }
+    .body-container .card.fat .card-body {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin Login Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Getachew Zemene">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1a7be0b1e9.js" crossorigin="anonymous"></script>
+    <script src="assets/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="form-popup" id="myForm">
+        <form action="/adminLogin" class="form-container" method="post">
+            <h1>Admin Login</h1>
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Enter admin name" name="name" id="admin_name" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter admin Password" name="psw" id="admin_pass" required>
+            <p class="text-danger">message: {{message}}</p>
+            <button type="submit" class="btn_login">Login</button>
+            <button type="button" class="btn_cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+    <script src="assets/javascript.js"></script>
+    <script src="assets/jquery-3.6.0.js"></script>
+</body>
+
+</html>
